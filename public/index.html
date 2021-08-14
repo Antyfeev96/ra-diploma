@@ -27,5 +27,14 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <script>
+      // TODO: replace it with React!
+      const searchEl = document.querySelector('[data-id=search-expander]');
+      const searchFormEl = document.querySelector('[data-id=search-form]');
+      searchEl.addEventListener('click', () => {
+        searchFormEl.classList.toggle('invisible');
+        searchFormEl.querySelector('input').focus();
+      });
+    </script>
   </body>
 </html>

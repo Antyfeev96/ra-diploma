@@ -1,23 +1,22 @@
-import React, { Fragment } from 'react';
-import styled from 'styled-components';
-import header_logo from '../../img/header-logo.png'
+import React from 'react';
+import HeaderLogo from "./HeaderLogo/HeaderLogo";
+import HeaderMain from "./HeaderMain/HeaderMain";
 
-const StyledHeader = styled.div`
-  position: relative;
-  display: flex;
-  align-items: center;
-  background-color: #f8f9fa;
-`
 
 function Header() {
   return (
-    <Fragment>
-      <StyledHeader className="container">
-        <a className="navbar-brand" href="/">
-          <img src={header_logo} alt="Bosa Noga"/>
-        </a>
-      </StyledHeader>
-    </Fragment>
+    <header className="container">
+      <div className="row">
+        <div className="col">
+          <nav className="navbar navbar-expand-sm navbar-light bg-light">
+            <HeaderLogo/>
+            <div className="collapse navbar-collapse" id="navbarMain">
+              <HeaderMain/>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
   );
 }
 
