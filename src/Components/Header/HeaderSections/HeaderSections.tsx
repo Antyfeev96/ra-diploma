@@ -23,7 +23,7 @@ const CATEGORIES: Section[] = [
 function HeaderSections() {
   return (
     <ul className="navbar-nav mr-auto">
-      {CATEGORIES.map(section => <HeaderSection title={section.title} link={section.link}/>)}
+      {CATEGORIES.map((section, index) => <HeaderSection key={index} title={section.title} link={section.link}/>)}
     </ul>
   );
 }

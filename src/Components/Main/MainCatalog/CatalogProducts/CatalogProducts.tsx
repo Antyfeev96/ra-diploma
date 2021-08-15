@@ -1,5 +1,5 @@
 import React from 'react';
-import {IProduct} from "../../ProductCard/ProductCard";
+import ProductCard, {IProduct} from "../../ProductCard/ProductCard";
 
 const PRODUCTS: IProduct[] = [
   {
@@ -43,7 +43,7 @@ const PRODUCTS: IProduct[] = [
 function CatalogProducts() {
   return (
     <div className="row">
-
+      {PRODUCTS.map(product => <ProductCard key={product.id} src={product.src} productName={product.productName} cost={product.cost}/>)}
     </div>
   );
 }

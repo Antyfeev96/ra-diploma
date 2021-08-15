@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef} from 'react';
 
 export interface IProduct {
   id?: number,
@@ -10,9 +10,12 @@ export interface IProduct {
 const prettify = (cost: number): string => cost.toLocaleString('ru-RU');
 
 function ProductCard({src, productName, cost}: IProduct) {
+  const cardRef = useRef<HTMLDivElement>(null)
+  const parentClassName = cardRef?.current?.parentElement?.parentElement?.className
+  const additionalClass: string = parentClassName === 'catalog' ? 'catalog-item-card' : ''
   return (
-    <div className="col-4">
-      <div className="card">
+    <div ref={cardRef} className="col-4">
+      <div className={`card ${additionalClass}`}>
         <img src={src}
              className="card-img-top img-fluid" alt={productName}/>
         <div className="card-body">

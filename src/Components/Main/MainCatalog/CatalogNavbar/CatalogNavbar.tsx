@@ -8,7 +8,7 @@ const LINKS: ILink[] = [
   },
   {
     href: '#',
-    text: 'Женская обусь'
+    text: 'Женская обувь'
   },
   {
     href: '#',
@@ -27,7 +27,7 @@ const LINKS: ILink[] = [
 function CatalogNavbar() {
   return (
     <ul className="catalog-categories nav justify-content-center">
-      {LINKS.map(link => <CatalogLink href={link.href} text={link.text}/>)}
+      {LINKS.map((link, index) => <CatalogLink key={index} href={link.href} text={link.text}/>)}
     </ul>
   );
 }
