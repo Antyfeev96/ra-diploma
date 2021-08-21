@@ -1,4 +1,10 @@
 import React from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 export type Section = {
   title: string,
@@ -8,7 +14,7 @@ export type Section = {
 function HeaderSection({ title, link }: Section) {
   return (
     <li className="nav-item active">
-      <a className="nav-link" href={link}>{title}</a>
+      <Link className="nav-link" to={link}>{title}</Link>
     </li>
   );
 }
