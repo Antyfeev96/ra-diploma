@@ -1,9 +1,6 @@
 import React from "react";
 import {
   BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
 } from "react-router-dom";
 import Header from './Components/Header/Header'
 import './App.css';
@@ -12,11 +9,13 @@ import Footer from "./Components/Footer/Footer";
 
 function App() {
   return (
-    <div className="App">
-      <Header/>
-
-      <Footer/>
-    </div>
+    <Router>
+      <div className="App">
+        <Header/>
+        <Main/>
+        <Footer/>
+      </div>
+    </Router>
   );
 }
 

@@ -1,12 +1,17 @@
-import React, {useRef} from 'react';
+import React from 'react';
 import CatalogNavbar from "./CatalogNavbar/CatalogNavbar";
 import CatalogProducts from "./CatalogProducts/CatalogProducts";
 import CatalogLoadButton from "./CatalogLoadButton/CatalogLoadButton";
 
-function MainCatalog() {
+type Props = {
+  children?: JSX.Element
+}
+
+function MainCatalog({ children }: Props) {
   return (
     <section className="catalog">
       <h2 className="text-center">Каталог</h2>
+      {children}
       <CatalogNavbar/>
       <CatalogProducts/>
       <CatalogLoadButton/>

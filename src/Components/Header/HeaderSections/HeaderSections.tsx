@@ -1,5 +1,4 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
 import HeaderSection, {Section} from '../HeaderSection/HeaderSection'
 
 const CATEGORIES: Section[] = [
@@ -9,25 +8,27 @@ const CATEGORIES: Section[] = [
   },
   {
     title: 'Каталог',
-    link: '/'
+    link: '/catalog'
   },
   {
     title: 'О магазине',
-    link: '/'
+    link: '/about'
   },
   {
     title: 'Контакты',
-    link: '/'
+    link: '/contacts'
+  },
+  {
+    title: '404',
+    link: '/404'
   }
 ]
 
 function HeaderSections() {
   return (
-    <Router>
-      <ul className="navbar-nav mr-auto">
-        {CATEGORIES.map((section, index) => <HeaderSection key={index} title={section.title} link={section.link}/>)}
-      </ul>
-    </Router>
+    <ul className="navbar-nav mr-auto">
+      {CATEGORIES.map((section, index) => <HeaderSection key={index} title={section.title} link={section.link}/>)}
+    </ul>
   );
 }
 
