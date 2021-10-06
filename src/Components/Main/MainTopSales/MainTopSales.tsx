@@ -1,41 +1,26 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import ProductCard from "../ProductCard/ProductCard";
-import {IProduct} from "../ProductCard/ProductCard";
-
-const PRODUCTS: IProduct[] = [
-  {
-    id: 1,
-    src: "https://cdn-images.farfetch-contents.com/12/93/06/52/12930652_13567910_1000.jpg",
-    productName: "Босоножки 'MYER'",
-    cost: 34000,
-    type: 'top-sale'
-  },
-  {
-    id: 2,
-    src: "https://cdn-images.farfetch-contents.com/12/94/66/72/12946672_13518465_1000.jpg",
-    productName: "Босоножки 'Keira'",
-    cost: 7600,
-    type: 'top-sale'
-  },
-  {
-    id: 3,
-    src: "https://cdn-images.farfetch-contents.com/12/99/04/32/12990432_13705715_1000.jpg",
-    productName: "Супергеройские кеды",
-    cost: 1400,
-    type: 'top-sale'
-  }
-]
+import { RootStateOrAny, useDispatch, useSelector} from "react-redux";
+import { fetchTopSales } from 'Store/TopSales/reducer'
 
 function MainTopSales() {
+  const state = useSelector(({ topSalesReducer } : RootStateOrAny) => topSalesReducer)
+  console.log({state})
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(fetchTopSales())
+  }, [dispatch])
+
   return (
     <section className="top-sales">
       <h2 className="text-center">Хиты продаж!</h2>
       <div className="row">
-        {PRODUCTS.map(product => <ProductCard
+        {state.topSales.map((product: any) => <ProductCard
           key={product.id}
-          src={product.src}
-          productName={product.productName}
-          cost={product.cost}
+          src={product.images[0]}
+          productName={product.title}
+          cost={product.price}
           type={product.type}/>)}
       </div>
     </section>

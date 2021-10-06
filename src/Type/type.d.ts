@@ -1,8 +1,3 @@
-interface IState {
-  loading: boolean,
-  error: null | string
-}
-
 type Action = {
   type: string,
   error?: string,
